@@ -14,12 +14,14 @@ function Header() {
 	return (
 		<>
 			{/* desktop header */}
-			<header className="fixed left-0 right-0 mx-auto my-5 hidden w-[90%] rounded-3xl bg-gray-300/50 backdrop-blur md:block">
+			<header className="fixed left-0 right-0 mx-auto my-5 hidden w-[90%] rounded-3xl bg-gray-300/50 backdrop-blur md:block z-50">
 				<div className="flex items-center justify-between px-4 font-Vazir">
 					{/* left items */}
 					<div className="flex items-center justify-center">
 						<div className="flex cursor-pointer items-center justify-center rounded-xl px-1 py-2 transition-colors hover:bg-yellow-500/50">
-							<span className="mr-1 text-xl tracking-tighter">ورود |‌ ثبت‌نام</span>
+							{/* login - signup */}
+							<span className="mr-1 text-lg font-bold tracking-tighter">ورود |‌ ثبت‌نام</span>
+              {/* login icon */}
 							<div>
 								<svg
 									xmlns="http://www.w3.org/2000/svg"
@@ -27,7 +29,7 @@ function Header() {
 									viewBox="0 0 24 24"
 									strokeWidth={1.5}
 									stroke="currentColor"
-									className="h-6 w-6"
+									className="h-8 w-8"
 								>
 									<path
 										strokeLinecap="round"
@@ -37,7 +39,9 @@ function Header() {
 								</svg>
 							</div>
 						</div>
+						{/* divider */}
 						<span className="mx-4 h-11 w-[1.5px] bg-yellow-500"></span>
+            {/* cart icon */}
 						<div className="cursor-pointer rounded-xl p-2 transition-colors hover:bg-yellow-500/50">
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
@@ -45,7 +49,7 @@ function Header() {
 								viewBox="0 0 24 24"
 								strokeWidth={1.5}
 								stroke="currentColor"
-								className="h-6 w-6"
+								className="h-8 w-8"
 							>
 								<path
 									strokeLinecap="round"
@@ -59,12 +63,14 @@ function Header() {
 					<div className="flex items-center justify-between">
 						{/* search input */}
 						<div className="relative">
+              {/* input */}
 							<div className="flex items-center justify-center">
 								<input
 									className="h-9 w-[300px] rounded-md bg-gray-100 pr-12 text-right text-gray-800 placeholder:text-right placeholder:text-base placeholder:text-gray-600 focus:border-[1.5px] focus:border-yellow-500 focus:outline-none lg:w-[360px]"
 									type="text"
 									placeholder="...جستجو"
 								/>
+                {/* search icon */}
 								<div className="absolute right-0 mx-4 cursor-pointer text-zinc-700 transition-colors hover:text-gray-600">
 									<svg
 										xmlns="http://www.w3.org/2000/svg"
@@ -103,14 +109,14 @@ function Header() {
 				</div>
 			</header>
 			{/* mobile header */}
-			<div className="fixed top-0 w-screen bg-gray-300/50 shadow-md backdrop-blur md:hidden">
+			<div className="fixed top-0 w-screen bg-gray-300/50 shadow-md backdrop-blur md:hidden z-50">
 				<div className="flex items-center justify-between">
 					<div className="m-2 p-2">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							fill="none"
 							viewBox="0 0 24 24"
-							strokeWidth={1.5}
+							strokeWidth={2}
 							stroke="currentColor"
 							className="h-6 w-6"
 						>
@@ -142,7 +148,7 @@ function Header() {
 							xmlns="http://www.w3.org/2000/svg"
 							fill="none"
 							viewBox="0 0 24 24"
-							strokeWidth={1.5}
+							strokeWidth={2}
 							stroke="currentColor"
 							className="h-6 w-6"
 						>
