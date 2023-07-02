@@ -14,44 +14,30 @@ function Landing() {
 	return (
 		<section className="relative mt-4 xl:mx-[102px]">
 			{/* landing container */}
-			<div className="flex-col items-center justify-between md:flex md:flex-row">
+			<div className="items-center justify-between md:flex md:flex-row-reverse">
 				{/* landing image */}
 				<div className=" mx-auto aspect-auto h-[320px] w-[320px] md:h-[416px] md:w-[416px]">
 					<img src="/Images/landing.png" alt="" />
 				</div>
 				{/* landing titles */}
-				<div className="flex flex-col items-end justify-center text-left">
+				<div className="flex flex-col items-start justify-center text-left">
 					{/* landing title */}
 					<span className="my-5 font-Lalezar text-2xl text-gray-800 md:m-0 md:text-3xl lg:text-4xl xl:text-5xl">
 						فروش انواع ظروف یکبار مصرف
 					</span>
 					{/* landing sub title */}
 					<span className="font-Lalezar text-xl text-zinc-700 md:mt-[60px] lg:text-2xl xl:text-3xl">
-						!از تولید به مصرف بدون واسطه
+						از تولید به مصرف بدون واسطه!
 					</span>
 					<div className="w-[90%] md:w-auto">
-						<div className="flex flex-row-reverse items-center justify-between md:flex-col">
+						<div className="flex flex-row items-center justify-between md:flex-col">
 							{/* landing buy btn */}
 							<button className="mt-7 flex items-center justify-between gap-2 rounded-lg bg-yellow-500/50 p-5 text-xl font-bold text-gray-800 transition-colors hover:bg-yellow-500/75 md:mt-[50px]">
-								{/* <svg
-									xmlns="http://www.w3.org/2000/svg"
-									fill="none"
-									viewBox="0 0 24 24"
-									strokeWidth={1.5}
-									stroke="currentColor"
-									className="h-6 w-6"
-								>
-									<path
-										strokeLinecap="round"
-										strokeLinejoin="round"
-										d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18"
-									/>
-								</svg> */}
-								<PiArrowLeftFill className='w-6 h-6' />
 								خرید از جهان‌ساز
+								<PiArrowLeftFill className="h-6 w-6" />
 							</button>
 							{/* landing arrow down */}
-							<div className="mt-4 flex -rotate-45 justify-center md:rotate-0 opacity-75">
+							<div className="mt-4 flex -rotate-45 justify-center opacity-75 md:rotate-0">
 								<svg
 									width="40"
 									height="130"
