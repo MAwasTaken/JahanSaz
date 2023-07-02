@@ -14,7 +14,7 @@ function Header() {
 	return (
 		<>
 			{/* desktop header */}
-			<header className="fixed left-0 right-0 mx-auto my-5 hidden w-[90%] rounded-3xl bg-gray-300/50 backdrop-blur md:block z-50">
+			<header className="fixed left-0 right-0 mx-auto my-5 hidden w-[90%] rounded-3xl bg-gray-300/50 backdrop-blur-[6px] md:block z-50">
 				<div className="flex items-center justify-between px-4 font-Vazir">
 					{/* left items */}
 					<div className="flex items-center justify-center">
@@ -66,7 +66,7 @@ function Header() {
               {/* input */}
 							<div className="flex items-center justify-center">
 								<input
-									className="h-9 w-[300px] rounded-md bg-gray-100 pr-12 text-right text-gray-800 placeholder:text-right placeholder:text-base placeholder:text-gray-600 focus:border-[1.5px] focus:border-yellow-500 focus:outline-none lg:w-[360px]"
+									className="h-9 w-[300px] rounded-md bg-gray-100/50 pr-12 text-right text-gray-800 placeholder:text-right placeholder:text-base placeholder:text-gray-600 focus:border-[1.5px] focus:border-yellow-500 focus:outline-none lg:w-[360px] backdrop-blur-[6px]"
 									type="text"
 									placeholder="...جستجو"
 								/>
@@ -109,7 +109,7 @@ function Header() {
 				</div>
 			</header>
 			{/* mobile header */}
-			<div className="fixed top-0 w-screen bg-gray-300/50 shadow-md backdrop-blur md:hidden z-50">
+			<div className="fixed top-0 w-screen bg-gray-300/50 shadow-md backdrop-blur-[6px] md:hidden z-50">
 				<div className="flex items-center justify-between">
 					<div className="m-2 p-2">
 						<svg
