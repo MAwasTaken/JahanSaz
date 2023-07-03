@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+<<<<<<< HEAD
     "start": "nodemon index.js --dev"
+=======
+    "dev": "nodemon index.js --dev"
+>>>>>>> e7ea6bb46797b4c1deefa2e8e31bed8de75ff129
   },
   "keywords": [],
   "author": "",
@@ -15,9 +19,18 @@
     "cryptojs": "^2.5.3",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
+<<<<<<< HEAD
     "joi": "^17.9.2",
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^7.3.1",
     "nodemon": "^2.0.22"
+=======
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^7.3.1",
+    "nodemon": "^2.0.22"
+  },
+  "devDependencies": {
+    "prettier": "2.8.8"
+>>>>>>> e7ea6bb46797b4c1deefa2e8e31bed8de75ff129
   }
 }
