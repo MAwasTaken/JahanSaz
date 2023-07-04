@@ -40,9 +40,9 @@ function Header() {
 							{/* input */}
 							<div className="flex items-center justify-center">
 								<input
-									className="h-9 w-[300px] rounded-md bg-gray-100/50 pr-12 text-right text-gray-800 backdrop-blur-[6px] placeholder:text-right placeholder:text-base placeholder:text-gray-600 focus:border-[1.5px] focus:border-yellow-500 focus:outline-none lg:w-[360px]"
+									className="h-9 w-[300px] rounded-md bg-gray-100/50 pr-12 text-gray-800 backdrop-blur-[6px] placeholder:text-base placeholder:text-gray-600 focus:border-2 focus:border-yellow-500 focus:outline-none lg:w-[360px]"
 									type="text"
-									placeholder="...جستجو"
+									placeholder="جستجو ..."
 								/>
 								{/* search icon */}
 								<div className="absolute right-0 mx-4 cursor-pointer text-zinc-700 transition-colors hover:text-gray-600">
