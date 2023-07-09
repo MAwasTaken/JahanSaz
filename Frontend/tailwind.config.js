@@ -5,7 +5,7 @@ export default {
 		extend: {
 			fontFamily: {
 				Vazir: 'Vazir',
-        Lalezar: "Lalezar"
+				Lalezar: 'Lalezar'
 			},
 			container: {
 				center: true,

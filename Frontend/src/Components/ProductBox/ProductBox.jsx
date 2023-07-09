@@ -31,7 +31,7 @@ function ProductBox({
 			</Link>
 			{/* product title */}
 			<div>
-				<span className="line-clamp-2 font-Vazir text-sm font-bold text-gray-800 md:text-xl">
+				<span className="line-clamp-2 text-sm font-Vazir font-bold text-gray-800 md:text-xl">
 					{productTitle}
 				</span>
 			</div>

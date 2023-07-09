@@ -22,8 +22,6 @@ function LastProducts() {
 		const res = await fetch(`http://localhost:3000/api/products`);
 		const lastProducts = await res.json();
 
-		console.log(lastProducts);
-
 		setAllProducts(lastProducts);
 	};
 

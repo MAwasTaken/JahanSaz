@@ -1,5 +1,5 @@
 // react
-import React, { createRef, useRef } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 // styles
@@ -104,7 +104,7 @@ function Header() {
 									/>
 								</svg>
 							</div>
-							<span className="mr-1 text-lg font-bold tracking-tighter">ورود |‌ ثبت‌نام</span>
+							<span className="mr-1 text-lg tracking-tighter">ورود |‌ ثبت‌نام</span>
 						</div>
 					</div>
 				</div>
