@@ -20,7 +20,10 @@ export default {
 					md: '768px',
 					sm: '640px'
 				}
-			}
+			},
+      boxShadow: {
+        "box": "0 0 20px rgba(234, 179, 8, 0.5)"
+      }
 		}
 	},
 	plugins: []

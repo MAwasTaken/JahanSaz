@@ -9,6 +9,7 @@ import React from 'react';
 import Header from '../../Components/Header/Header';
 import Landing from '../../Components/Landing/Landing';
 import LastProducts from '../../Components/LastProducts/LastProducts';
+import AboutUs from '../../Components/AboutUs/AboutUs';
 
 // index
 function Index() {
@@ -19,6 +20,7 @@ function Index() {
 			<main className="container ">
 				<Landing />
 				<LastProducts />
+				<AboutUs />
 				Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae quo natus laborum in
 				impedit iste, incidunt alias repellendus aliquam consectetur eos dolor praesentium iure
 				odio. Maxime, odio architecto nesciunt consectetur nulla libero aliquid harum, itaque

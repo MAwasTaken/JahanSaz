@@ -32,7 +32,7 @@ function LastProducts() {
 
 	// jsx
 	return (
-		<section className='md:my-10 my-5'>
+		<section className='md:mt-10 mt-5'>
 			{/* header */}
 			<Title
 				titleText="جدیدترین محصولات"
