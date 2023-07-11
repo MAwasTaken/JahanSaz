@@ -2,6 +2,7 @@ const User = require('../models/Users');
 const router = require('express').Router();
 const { varifyToken, verifyTokenAndAuth, verifyTokenAndAdmin } = require('./varifyToken');
 const CryptoJS = require('crypto-js');
+const userJoi = require('../joi-models/joi-users-schema');
 
 //UPDATE
 router.put('/:id', verifyTokenAndAuth, async (req, res) => {
@@ -13,6 +14,7 @@ router.put('/:id', verifyTokenAndAuth, async (req, res) => {
 	}
 
 	try {
+		await userJoi.validateAsync(req.body);
 		const updatedUser = await User.findByIdAndUpdate(
 			req.params.id,
 			{

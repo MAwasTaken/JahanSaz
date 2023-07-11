@@ -2,6 +2,7 @@ const router = require('express').Router();
 const User = require('../models/Users');
 const CryptoJS = require('crypto-js');
 const jwt = require('jsonwebtoken');
+const userJoi = require('../joi-models/joi-users-schema');
 
 //REGISTER
 router.post('/register', async (req, res) => {
@@ -16,6 +17,7 @@ router.post('/register', async (req, res) => {
 	});
 
 	try {
+		await userJoi.validateAsync(req.body);
 		const savedUser = await newUser.save();
 		res.status(200).json(savedUser);
 	} catch (err) {
