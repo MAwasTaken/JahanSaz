@@ -78,4 +78,5 @@ function AboutUs() {
 	);
 }
 
+// exports
 export default AboutUs;

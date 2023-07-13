@@ -7,6 +7,7 @@ import 'swiper/css';
 // packages
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
+import axios from 'axios';
 
 // components
 import Title from '../Title/Title';
@@ -19,10 +20,12 @@ function LastProducts() {
 
 	// get all last products
 	const getLastProducts = async () => {
-		const res = await fetch(`http://localhost:3000/api/products`);
-		const lastProducts = await res.json();
+		axios.get(`http://localhost:3000/api/products`).then((res) => setAllProducts(res.data));
 
-		setAllProducts(lastProducts);
+		// const res = await fetch(`http://localhost:3000/api/products`);
+		// const lastProducts = await res.json();
+
+		// setAllProducts(lastProducts);
 	};
 
 	// get all courses when mounting
@@ -32,7 +35,7 @@ function LastProducts() {
 
 	// jsx
 	return (
-		<section className='md:mt-10 mt-5'>
+		<section className="mt-5 md:mt-10">
 			{/* header */}
 			<Title
 				titleText="جدیدترین محصولات"
@@ -60,7 +63,7 @@ function LastProducts() {
 							productCover={product.images}
 							productTitle={product.productName}
 							productPrice={product.price}
-							productDiscount={85}
+							productDiscount={product.discount}
 							productSize={product.size}
 							productHref="/"
 						/>

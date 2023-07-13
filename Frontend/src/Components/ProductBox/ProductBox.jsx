@@ -20,7 +20,7 @@ function ProductBox({
 }) {
 	// jsx
 	return (
-		<div className="m-4 mx-auto h-[273px] w-[172px] flex-col rounded-2xl bg-white px-4 pb-2 pt-4 shadow-md transition-shadow hover:shadow hover:shadow-yellow-500/50 md:h-[460px] md:w-[300px] md:px-5 md:pt-5">
+		<div className="relative m-4 mx-auto h-[273px] w-[172px] flex-col rounded-2xl bg-white px-4 pb-2 pt-4 shadow-md transition-shadow hover:shadow hover:shadow-yellow-500/50 md:h-[460px] md:w-[300px] md:px-5 md:pt-5">
 			{/* product cover */}
 			<Link to={productHref} className="mb-1 block h-[140px] w-[140px] md:h-[260px] md:w-[260px]">
 				{productCover ? (
@@ -31,7 +31,7 @@ function ProductBox({
 			</Link>
 			{/* product title */}
 			<div>
-				<span className="line-clamp-2 text-sm font-Vazir font-bold text-gray-800 md:text-xl">
+				<span className="line-clamp-2 font-Vazir text-sm font-bold text-gray-800 md:text-xl">
 					{productTitle}
 				</span>
 			</div>
@@ -58,15 +58,17 @@ function ProductBox({
 					)}
 				</div>
 				{/* product size */}
-				<span className="hidden text-gray-600 md:block">{productSize.toLocaleString()}</span>
+				{productSize && (
+					<span className="hidden text-gray-600 md:block">{productSize.toLocaleString()}</span>
+				)}
 			</div>
 			{/* more info button */}
-			<div className="mt-6 flex items-center justify-center md:mt-9">
+			<div className="absolute bottom-2 left-7 mt-6 md:bottom-4 md:left-20 md:mt-9">
 				<Link
 					to={productHref}
 					className="flex items-center rounded-lg transition-colors hover:bg-yellow-400/25"
 				>
-					<span className="md:p-2 p-1 text-sm text-yellow-500 md:text-base">مشاهده اطلاعات</span>
+					<span className="p-1 text-sm text-yellow-500 md:p-2 md:text-base">مشاهده اطلاعات</span>
 					<BsFillCaretLeftFill className="h-6 text-yellow-500/50 md:w-6" />
 				</Link>
 			</div>
