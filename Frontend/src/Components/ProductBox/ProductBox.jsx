@@ -20,7 +20,7 @@ function ProductBox({
 }) {
 	// jsx
 	return (
-		<div className="relative m-4 mx-auto h-[273px] w-[172px] flex-col rounded-2xl bg-white px-4 pb-2 pt-4 shadow-md transition-shadow hover:shadow hover:shadow-yellow-500/50 md:h-[460px] md:w-[300px] md:px-5 md:pt-5">
+		<div className="relative m-4 mx-auto h-[273px] w-[172px] flex-col rounded-2xl bg-white px-4 pb-2 pt-4 shadow-md transition-shadow hover:shadow-product md:h-[460px] md:w-[300px] md:px-5 md:pt-5">
 			{/* product cover */}
 			<Link to={productHref} className="mb-1 block h-[140px] w-[140px] md:h-[260px] md:w-[260px]">
 				{productCover ? (

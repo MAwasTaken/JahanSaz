@@ -40,7 +40,7 @@ function Header() {
 							{/* input */}
 							<div className="flex items-center justify-center">
 								<input
-									className="h-9 w-[300px] rounded-md bg-gray-100/50 pr-12 text-gray-800 backdrop-blur-[6px] placeholder:text-base placeholder:text-gray-600 focus:border-2 focus:border-yellow-500 focus:outline-none lg:w-[360px]"
+									className="h-9 w-[300px] rounded-md bg-white/50 pr-12 text-gray-800 backdrop-blur-[6px] placeholder:text-base placeholder:text-gray-600 focus:border-2 focus:border-yellow-500 focus:outline-none lg:w-[360px]"
 									type="text"
 									placeholder="جستجو ..."
 								/>

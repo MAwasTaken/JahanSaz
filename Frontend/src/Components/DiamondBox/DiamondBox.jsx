@@ -18,7 +18,7 @@ function DiamondBox({ text, children }) {
 				{children}
 			</div>
 			{/* text */}
-			<span className="absolute top-[75px] z-10 mx-auto my-auto flex w-full items-center justify-center font-Lalezar text-sm lg:top-2/3 lg:text-xl">
+			<span className="absolute text-zinc-700 top-[75px] z-10 mx-auto my-auto flex w-full items-center justify-center font-Lalezar text-sm lg:top-2/3 lg:text-xl">
 				{text}
 			</span>
 		</div>

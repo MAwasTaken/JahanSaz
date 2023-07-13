@@ -16,17 +16,11 @@ import ProductBox from '../ProductBox/ProductBox';
 // last products
 function LastProducts() {
 	// last products
-	const [lastProducts, setAllProducts] = useState([]);
+	const [allProducts, setAllProducts] = useState([]);
 
 	// get all last products
-	const getLastProducts = async () => {
+	const getLastProducts = async () =>
 		axios.get(`http://localhost:3000/api/products`).then((res) => setAllProducts(res.data));
-
-		// const res = await fetch(`http://localhost:3000/api/products`);
-		// const lastProducts = await res.json();
-
-		// setAllProducts(lastProducts);
-	};
 
 	// get all courses when mounting
 	useEffect(() => {
@@ -57,7 +51,7 @@ function LastProducts() {
 				}}
 				modules={[Autoplay]}
 			>
-				{lastProducts.map((product, index) => (
+				{allProducts.map((product, index) => (
 					<SwiperSlide key={index}>
 						<ProductBox
 							productCover={product.images}

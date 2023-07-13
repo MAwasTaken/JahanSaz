@@ -12,7 +12,7 @@ import DiamondBox from '../DiamondBox/DiamondBox';
 // about us
 function AboutUs() {
 	return (
-		<div className="flex h-auto flex-col">
+		<section className="flex h-auto flex-col">
 			{/* dots */}
 			<div className="mt-5 flex items-center justify-center lg:mt-[30px]">
 				<div className=" flex h-[75px] w-[75px] items-center justify-center lg:h-[130px] lg:w-[130px] ">
@@ -74,7 +74,7 @@ function AboutUs() {
 					</svg>
 				</DiamondBox>
 			</div>
-		</div>
+		</section>
 	);
 }
 
