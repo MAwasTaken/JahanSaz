@@ -18,7 +18,8 @@ const ProductsSchema = new mongoose.Schema(
 		},
 		images: { type: Array },
 		description: { type: String },
-		size: { type: String }
+		size: { type: String },
+		best_seller: { type: Number, default: 0 }
 	},
 	{ timestamps: true }
 );
