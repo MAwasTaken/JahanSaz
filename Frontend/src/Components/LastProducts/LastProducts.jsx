@@ -7,29 +7,34 @@ import 'swiper/css';
 // packages
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
-import axios from 'axios';
 
 // components
 import Title from '../Title/Title';
 import ProductBox from '../ProductBox/ProductBox';
+import { getLastProducts } from '../../Services/Axios/Requests/Products';
 
 // last products
 function LastProducts() {
+	// show the section when the request is successful
+	const [isSectionAvailable, setIsSectionAvailable] = useState(false);
+
 	// last products
 	const [allProducts, setAllProducts] = useState([]);
 
-	// get all last products
-	const getLastProducts = async () =>
-		axios.get(`http://localhost:3000/api/products`).then((res) => setAllProducts(res.data));
-
-	// get all courses when mounting
+	// mounting SideEffects
 	useEffect(() => {
-		getLastProducts();
+		// get all courses when mounting
+		getLastProducts()
+			.then((res) => {
+				setAllProducts(res.data);
+				setIsSectionAvailable(true);
+			})
+			.catch(() => setIsSectionAvailable(false));
 	}, []);
 
 	// jsx
 	return (
-		<section className="mt-5 md:mt-10">
+		<section className={`mt-5 md:mt-10 ${isSectionAvailable ? null : 'hidden'}`}>
 			{/* header */}
 			<Title
 				titleText="جدیدترین محصولات"
