@@ -23,7 +23,7 @@ function LastProducts() {
 
 	// mounting SideEffects
 	useEffect(() => {
-		// get all courses when mounting
+		// GET all last products when mounting
 		getLastProducts()
 			.then((res) => {
 				setAllProducts(res.data);
