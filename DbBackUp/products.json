@@ -1,150 +1,189 @@
 [{
   "_id": {
-    "$oid": "64a32c5876bd60430b89bc79"
+    "$oid": "64b5accc0ed9fe861e08d2e2"
   },
-  "productName": "240 کبابی بزرگ",
-  "price": 3600,
+  "productName": "240 کبابی",
+  "price": 2200,
   "categories": [
     "ظرف آلمینیومی"
   ],
+  "QTY": 5000,
   "images": [
     "lenvfnk;nregaekga5484ah/ahteh"
   ],
   "description": "ظرف آلمینیومی کبابی با ضخامت 50 میکرون",
   "size": "18*4*12",
+  "best_seller": 11,
   "createdAt": {
     "$date": {
-      "$numberLong": "1688415320034"
+      "$numberLong": "1689627852937"
     }
   },
   "updatedAt": {
     "$date": {
-      "$numberLong": "1688415320034"
+      "$numberLong": "1689628950684"
     }
   },
   "__v": 0
 },{
   "_id": {
-    "$oid": "64a32c6d76bd60430b89bc7b"
+    "$oid": "64b5ace00ed9fe861e08d2e4"
   },
-  "productName": "230 کبابی کوچک",
-  "price": 2600,
-  "categories": [
-    "ظرف آلمینیومی"
-  ],
-  "images": [
-    "lenvfnk;nregaekga5484ah/ahteh"
-  ],
-  "description": "ظرف آلمینیومی کبابی با ضخامت 45 میکرون",
-  "size": "18*4*12",
-  "createdAt": {
-    "$date": {
-      "$numberLong": "1688415341771"
-    }
-  },
-  "updatedAt": {
-    "$date": {
-      "$numberLong": "1688415341771"
-    }
-  },
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "64a32cdb76bd60430b89bc7d"
-  },
-  "productName": "114 دو پرس",
+  "productName": "230 کبابی",
   "price": 2200,
   "categories": [
     "ظرف آلمینیومی"
   ],
+  "QTY": 7000,
   "images": [
     "lenvfnk;nregaekga5484ah/ahteh"
   ],
-  "description": "ظرف آلمینیومی دو پرس با ضخامت 50 میکرون",
+  "description": "ظرف آلمینیومی کبابی با ضخامت 50 میکرون",
   "size": "18*4*12",
+  "best_seller": 8,
   "createdAt": {
     "$date": {
-      "$numberLong": "1688415451475"
+      "$numberLong": "1689627872286"
     }
   },
   "updatedAt": {
     "$date": {
-      "$numberLong": "1688415451475"
+      "$numberLong": "1689628931401"
     }
   },
   "__v": 0
 },{
   "_id": {
-    "$oid": "64a32ce076bd60430b89bc7f"
+    "$oid": "64b5ad020ed9fe861e08d2e6"
   },
-  "productName": "105 تک پرس",
-  "price": 2200,
+  "productName": "تک پرس 105",
+  "price": 1600,
   "categories": [
     "ظرف آلمینیومی"
   ],
+  "QTY": 30000,
   "images": [
     "lenvfnk;nregaekga5484ah/ahteh"
   ],
-  "description": "ظرف آلمینیومی تک پرس با ضخامت 40 میکرون",
+  "description": "ظرف آلمینیومی کبابی با ضخامت 50 میکرون",
   "size": "18*4*12",
+  "best_seller": 6,
   "createdAt": {
     "$date": {
-      "$numberLong": "1688415456168"
+      "$numberLong": "1689627906853"
     }
   },
   "updatedAt": {
     "$date": {
-      "$numberLong": "1688415456168"
+      "$numberLong": "1689628916522"
     }
   },
   "__v": 0
 },{
   "_id": {
-    "$oid": "64a32cee76bd60430b89bc81"
+    "$oid": "64b5ad0e0ed9fe861e08d2e8"
   },
-  "productName": "241 کبابی ",
-  "price": 2100,
+  "productName": "تک دو 107",
+  "price": 1600,
   "categories": [
     "ظرف آلمینیومی"
   ],
+  "QTY": 30000,
   "images": [
     "lenvfnk;nregaekga5484ah/ahteh"
   ],
-  "description": "ظرف آلمینیومی کبابی بلند با ضخامت 50 میکرون",
+  "description": "ظرف آلمینیومی کبابی با ضخامت 50 میکرون",
   "size": "18*4*12",
+  "best_seller": 8,
   "createdAt": {
     "$date": {
-      "$numberLong": "1688415470769"
+      "$numberLong": "1689627918703"
     }
   },
   "updatedAt": {
     "$date": {
-      "$numberLong": "1688415470769"
+      "$numberLong": "1689628931409"
     }
   },
   "__v": 0
 },{
   "_id": {
-    "$oid": "64a32cfd76bd60430b89bc83"
+    "$oid": "64b5ad230ed9fe861e08d2ea"
   },
-  "productName": "115 نیم پرس",
-  "price": 1500,
+  "productName": "تک نیم 115",
+  "price": 900,
   "categories": [
     "ظرف آلمینیومی"
   ],
+  "QTY": 35000,
   "images": [
     "lenvfnk;nregaekga5484ah/ahteh"
   ],
-  "description": "ظرف آلمینیومی کبابی با ضخامت 40 میکرون",
+  "description": "ظرف آلمینیومی کبابی با ضخامت 50 میکرون",
   "size": "18*4*12",
+  "best_seller": 4,
   "createdAt": {
     "$date": {
-      "$numberLong": "1688415485174"
+      "$numberLong": "1689627939153"
     }
   },
   "updatedAt": {
     "$date": {
-      "$numberLong": "1688415485174"
+      "$numberLong": "1689628907695"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64b5ad9b0ed9fe861e08d2ec"
+  },
+  "productName": "فویل آلمینیومی نازک",
+  "price": 80000,
+  "categories": [
+    "آلمینیوم"
+  ],
+  "QTY": 1000,
+  "images": [
+    "lenvfnk;nregaekga5484ah/ahteh"
+  ],
+  "description": "روکش آلمینیومی",
+  "size": "55 cm",
+  "best_seller": 8,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1689628059699"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1689628931411"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64b5adcd0ed9fe861e08d2ee"
+  },
+  "productName": "فویل آلمینیومی ضخیم",
+  "price": 80000,
+  "categories": [
+    "آلمینیوم"
+  ],
+  "QTY": 14500,
+  "images": [
+    "lenvfnk;nregaekga5484ah/ahteh"
+  ],
+  "description": "روکش آلمینیومی",
+  "size": "55 cm",
+  "best_seller": 3,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1689628109598"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1689628897612"
     }
   },
   "__v": 0

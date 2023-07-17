@@ -55,18 +55,19 @@ router.get('/find/:id', async (req, res) => {
 //GET ALL PRODUCTS
 router.get('/', async (req, res) => {
 	const qNew = req.query.new;
-	const qCategory = req.query.category;
+	const qSearch = req.query.search;
+	const qBestSeller = req.query.bestseller;
 	try {
 		let products;
 
 		if (qNew) {
 			products = await Product.find().sort({ createdAt: -1 }).limit(qNew);
-		} else if (qCategory) {
+		} else if (qSearch) {
 			products = await Product.find({
-				categories: {
-					$in: [qCategory]
-				}
-			});
+				productName: { $regex: qSearch }
+			}).sort({ createdAt: -1 });
+		} else if (qBestSeller) {
+			products = await Product.find().sort({ best_seller: -1 }).limit(qBestSeller);
 		} else {
 			products = await Product.find();
 		}
