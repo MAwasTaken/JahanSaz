@@ -12,7 +12,7 @@ import { HiOutlineMail } from 'react-icons/hi';
 import { BiPhone } from 'react-icons/bi';
 
 // components
-import FooterTitle from './FooterTitle/FooterTitle';
+import FooterTitle from '../CurveTitle/CurveTitle';
 import FooterIconLink from './FooterIconLink/FooterIconLink';
 import FooterDiskLinks from './FooterDiscLink/FooterDiskLink';
 import FooterHeaderLink from './FooterHeaderLink/FooterHeaderLink';

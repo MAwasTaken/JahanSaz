@@ -8,7 +8,7 @@ import React from 'react';
 // components
 
 // footer title
-function FooterTitle({ title }) {
+function CurveTitle({ title }) {
 	// jsx
 	return (
 		<>
@@ -40,4 +40,4 @@ function FooterTitle({ title }) {
 }
 
 // exports
-export default FooterTitle;
+export default CurveTitle;
