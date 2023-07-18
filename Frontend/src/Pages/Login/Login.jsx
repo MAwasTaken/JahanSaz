@@ -1,11 +1,12 @@
 // react
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 // styles
 
 // packages
 import ReCAPTCHA from 'react-google-recaptcha';
+import { Form, Formik } from 'formik';
 
 // components
 import Header from '../../Components/Header/Header';
@@ -15,6 +16,12 @@ import AuthInput from '../../Components/AuthInput/AuthInput';
 
 // login
 function Login() {
+  // document title
+	document.title = 'جهان‌ساز | JahanSaz - ورود';
+
+	// recaptcha Checkbox state
+	const [isCaptchaChecked, setIscaptchChecked] = useState(false);
+
 	// jsx
 	return (
 		<>
@@ -38,29 +45,65 @@ function Login() {
 							</svg>
 						</Link>
 					</div>
-					<div className="relative flex flex-col justify-center">
-						{/* title */}
-						<div className="relative ">
-							<CurveTitle title="ورود به حساب کاربری" />
-						</div>
-						<div className="flex flex-col gap-y-5">
-							{/* username */}
-							<AuthInput label="نام کاربری" placeholder="مثلا: jahansaz" />
-							{/* password */}
-							<AuthInput label="رمز عبور" placeholder="مثلا: $JAHANsaz2020" />
-						</div>
-						{/* google recaptcha */}
-						<ReCAPTCHA
-							className="mt-5 self-center md:mt-9"
-							sitekey="6Les0ysnAAAAAG_EtghJQCTJ2aUjdG1NSuDwOhcL"
-						/>
-						<button className="mt-[18px] h-10 w-[120px] self-center rounded-lg bg-yellow-500/50 text-base text-gray-800 transition-colors hover:bg-yellow-500/75 md:mt-9 md:h-[56px] md:w-[180px] md:text-xl">
-							ورود
-						</button>
+					{/* title */}
+					<div className="relative ">
+						<CurveTitle title="ورود به حساب کاربری" />
 					</div>
+					<Formik
+						initialValues={{
+							username: '',
+							password: ''
+						}}
+						onSubmit={(values) => {
+							isCaptchaChecked && console.log(values);
+						}}
+						validate={(values) => {
+							const errors = {};
+
+							if (values.username === '') errors.username = 'وارد کردن نام‌کاربری اجباری می‌باشد!';
+							else if (values.username.length < 3)
+								errors.username = 'طول نام کاربری باید حداقل ۳ کاراکتر باشد!';
+
+							if (values.password === '') errors.password = 'وارد کردن رمزعبور اجباری می‌باشد!';
+							else if (values.password.length < 8)
+								errors.password = 'طول رمزعبور باید حداقل ۸ کاراکتر باشد!';
+
+							return errors;
+						}}
+					>
+						<Form className="relative flex flex-col gap-y-5">
+							{/* username */}
+							<AuthInput
+								label="نام کاربری"
+								name="username"
+								placeholder="مثلا: jahansaz"
+								type="text"
+							/>
+							{/* password */}
+							<AuthInput
+								label="رمز عبور"
+								name="password"
+								placeholder="مثلا: $JAHANsaz2020"
+								type="password"
+							/>
+							{/* google recaptcha */}
+							<ReCAPTCHA
+								onChange={() => setIscaptchChecked(!isCaptchaChecked)}
+								className="mt-5 self-center md:mt-9"
+								sitekey="6Les0ysnAAAAAG_EtghJQCTJ2aUjdG1NSuDwOhcL"
+							/>
+							<button
+								type="submit"
+								className="md:text-x mt-[18px] h-10 w-[120px] self-center rounded-lg bg-yellow-500/50  text-base text-gray-800 transition-colors hover:bg-yellow-500/70
+									md:mt-9 md:h-[56px] md:w-[180px] md:text-lg"
+							>
+								ورود
+							</button>
+						</Form>
+					</Formik>
 					<ul className="mr-5 list-disc py-12 text-[10px] child:text-gray-600 md:mr-10 md:text-[15px]">
-						<li>نام کاربری عبارتی حداقل ۳ کاراکتریست از حروف لاتین.</li>
-						<li>رمز عبور عبارتی حداقل ۸ کاراکتریست شامل حروف بزرگ و کوچک لاتین.</li>
+						<li>نام کاربری عبارتی حداقل ۳ کاراکتریست از حروف و اعداد لاتین.</li>
+						<li>رمز عبور عبارتی حداقل ۸ کاراکتریست از حروف بزرگ و کوچک و اعداد لاتین.</li>
 					</ul>
 					<span className="flex justify-center text-[10px] text-gray-600 md:text-xs">
 						ورود شما به معنای پذیرش شرایط و قوانین

@@ -19,7 +19,7 @@ function Header() {
 					{/* right items */}
 					<div className="flex items-center justify-between">
 						{/* logo */}
-						<div className="cursor-pointer">
+						<Link to="/" className="cursor-pointer">
 							<svg
 								width="79"
 								height="70"
@@ -32,7 +32,7 @@ function Header() {
 									fill="#EAB308"
 								/>
 							</svg>
-						</div>
+						</Link>
 						{/* divider */}
 						<span className="mx-4 h-11 w-[1.5px] bg-gray-800"></span>
 						{/* search input */}

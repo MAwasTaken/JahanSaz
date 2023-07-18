@@ -25,7 +25,7 @@ function FooterIconLink({ title, icon, linkTitle, linkHref }) {
 			<Link
 				target="_blank"
 				to={linkHref}
-				className="text-sm text-gray-600 transition-colors hover:text-teal-500 md:text-lg"
+				className="text-sm text-gray-600 transition-colors hover:text-teal-600 md:text-lg"
 			>
 				{linkTitle}
 			</Link>

@@ -10,7 +10,7 @@ import { HiArrowLeft } from 'react-icons/hi';
 // components
 
 // diamond title
-function DiamondTitle({ DiamondTitleText, haveButton, buttonText, buttonHref }) {
+function DiamondTitle({ titleText, haveButton, buttonText, buttonHref }) {
 	// jsx
 	return (
 		<div className="flex h-[90px] items-center justify-between">

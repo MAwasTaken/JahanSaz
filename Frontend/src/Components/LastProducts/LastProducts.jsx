@@ -9,7 +9,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 
 // components
-import Title from '../DiamondTitle/Title';
+import Title from '../DiamondTitle/DiamondTitle';
 import ProductBox from '../ProductBox/ProductBox';
 import { getLastProducts } from '../../Services/Axios/Requests/Products';
 
