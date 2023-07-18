@@ -59,7 +59,7 @@ function ProductBox({
 				</div>
 				{/* product size */}
 				{productSize && (
-					<span className="hidden text-gray-600 md:block">{productSize.toLocaleString()}</span>
+					<span className="hidden text-gray-600 md:block" style={{direction: 'ltr'}}>{productSize.toLocaleString()}</span>
 				)}
 			</div>
 			{/* more info button */}

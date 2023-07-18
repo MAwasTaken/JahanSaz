@@ -1,7 +1,8 @@
 // react
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Title from '../DiamondTitle/DiamondTitle';
 import ProductBox from '../ProductBox/ProductBox';
+import { getTopSellers } from '../../Services/Axios/Requests/Products';
 
 // styles
 
@@ -11,6 +12,23 @@ import ProductBox from '../ProductBox/ProductBox';
 
 // top seller
 function TopSeller() {
+	// show the section when the request is successful
+	const [isSectionAvailable, setIsSectionAvailable] = useState(false);
+
+	// last products
+	const [topSellers, setAllTopSellers] = useState([]);
+
+	// mounting SideEffects
+	useEffect(() => {
+		// GET all top sellers products when mounting
+		getTopSellers()
+			.then((res) => {
+				setAllTopSellers(res.data);
+				setIsSectionAvailable(true);
+			})
+			.catch(() => setIsSectionAvailable(false));
+	}, []);
+
 	// jsx
 	return (
 		<section>
@@ -47,18 +65,17 @@ function TopSeller() {
 			{/* header */}
 			<Title titleText="پرفروش ترین محصولات" />
 			<div className="grid grid-cols-2 lg:grid-cols-3">
-				<ProductBox />
-				<ProductBox />
-				<ProductBox />
-				<ProductBox />
-				<ProductBox />
-				<ProductBox />
-				<ProductBox />
-				<ProductBox />
-				<ProductBox />
-				<ProductBox />
-				<ProductBox />
-				<ProductBox />
+				{topSellers.map((product, index) => (
+					<ProductBox
+						key={index}
+						productCover={product.images}
+						productTitle={product.productName}
+						productPrice={product.price}
+						productDiscount={product.discount}
+						productSize={product.size}
+						productHref="/"
+					/>
+				))}
 			</div>
 		</section>
 	);
