@@ -22,13 +22,13 @@ function Landing() {
 				{/* landing titles */}
 				<div className="flex flex-col items-start justify-center text-left">
 					{/* landing title */}
-					<span className="my-5 font-Lalezar text-2xl text-gray-800 md:m-0 md:text-3xl lg:text-4xl xl:text-5xl">
+					<h1 className="my-5 font-Lalezar text-2xl text-gray-800 md:m-0 md:text-3xl lg:text-4xl xl:text-5xl">
 						فروش انواع ظروف یکبار مصرف
-					</span>
+					</h1>
 					{/* landing sub title */}
-					<span className="font-Lalezar text-xl text-zinc-700 md:mt-[60px] lg:text-2xl xl:text-3xl">
+					<h2 className="font-Lalezar text-xl text-zinc-700 md:mt-[60px] lg:text-2xl xl:text-3xl">
 						از تولید به مصرف بدون واسطه!
-					</span>
+					</h2>
 					<div className="w-[90%] md:w-auto">
 						<div className="flex flex-row items-center justify-between md:flex-col">
 							{/* landing buy btn */}

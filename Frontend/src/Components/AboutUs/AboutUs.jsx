@@ -1,6 +1,6 @@
 // react
 import React from 'react';
-import Title from '../Title/Title';
+import Title from '../DiamondTitle/Title';
 import DiamondBox from './DiamondBox/DiamondBox';
 
 // styles

@@ -7,7 +7,7 @@ import React from 'react';
 
 // components
 
-// footer title
+// curve title
 function CurveTitle({ title }) {
 	// jsx
 	return (
@@ -34,7 +34,7 @@ function CurveTitle({ title }) {
 				</svg>
 			</div>
 			{/* header */}
-			<span className="font-Lalezar text-base text-gray-800 md:text-3xl">{title}</span>
+			<h4 className="font-Lalezar text-base text-gray-800 md:text-3xl">{title}</h4>
 		</>
 	);
 }

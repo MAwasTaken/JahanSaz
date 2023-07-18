@@ -9,16 +9,16 @@ import { HiArrowLeft } from 'react-icons/hi';
 
 // components
 
-// title
-function Title({ titleText, haveButton, buttonText, buttonHref }) {
+// diamond title
+function DiamondTitle({ DiamondTitleText, haveButton, buttonText, buttonHref }) {
 	// jsx
 	return (
 		<div className="flex h-[90px] items-center justify-between">
 			{/* right items */}
 			<div className="relative">
-				<span className="font-Lalezar text-2xl tracking-tighter lg:text-3xl xl:text-4xl text-gray-800">
+				<h3 className="font-Lalezar text-2xl tracking-tighter text-gray-800 lg:text-3xl xl:text-4xl">
 					{titleText}
-				</span>
+				</h3>
 				<div className="absolute -top-1 right-0 h-[45px] w-[45px] rotate-45 rounded-lg bg-yellow-500/50 shadow-lg shadow-yellow-500/50 backdrop-blur-[0.5px]"></div>
 			</div>
 			{/* left items */}
@@ -28,7 +28,9 @@ function Title({ titleText, haveButton, buttonText, buttonHref }) {
 					className="flex items-center gap-2 rounded-lg p-[10px] transition-colors hover:bg-yellow-500/50"
 				>
 					{/* button text */}
-					<span className="font-Vazir text-sm tracking-tighter md:text-xl text-zinc-700">{buttonText}</span>
+					<span className="font-Vazir text-sm tracking-tighter text-zinc-700 md:text-xl">
+						{buttonText}
+					</span>
 					<HiArrowLeft className="h-5 w-5" />
 				</Link>
 			)}
@@ -37,4 +39,4 @@ function Title({ titleText, haveButton, buttonText, buttonHref }) {
 }
 
 // exports
-export default Title;
+export default DiamondTitle;

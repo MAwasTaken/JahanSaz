@@ -109,10 +109,12 @@ function Footer() {
 				</div>
 			</div>
 			{/* creator */}
-			<span className="block w-full py-4 md:py-6 text-center text-[10px] font-bold text-gray-600 md:text-sm">
+			<span className="block w-full py-4 text-center text-[10px] font-bold text-gray-600 md:py-6 md:text-sm">
 				ساخته شده با 💚 توسط{' '}
-				<Link className="text-teal-600 hover:animate-pulse">مهدی عبداللهی</Link> و{' '}
-				<Link className="text-teal-600 hover:animate-pulse">حسین جهان‌دیده</Link>
+				<Link target='_blank' to="https://github.com/MAwasTaken" className="text-teal-600 hover:animate-pulse">
+					مهدی عبداللهی
+				</Link>{' '}
+				و <Link className="text-teal-600 hover:animate-pulse">حسین جهان‌دیده</Link>
 			</span>
 			{/* ellipse */}
 			<div className="absolute bottom-0 right-2/4 -z-20 h-[200px] w-[200px] translate-x-2/4 translate-y-2/4 animate-pulse rounded-full bg-teal-500/50 blur-3xl md:h-[500px] md:w-[500px] lg:h-[640px] lg:w-[640px]"></div>

@@ -19,9 +19,9 @@ function Login() {
 	return (
 		<>
 			<Header />
-			<section className="container">
+			<main className="container">
 				{/* login */}
-				<div className="mx-auto max-w-[650px] rounded-2xl bg-white/50 p-[10px] shadow-product md:p-5">
+				<section className="mx-auto max-w-[650px] rounded-2xl bg-white/50 p-[10px] shadow-product md:p-5">
 					{/* logo */}
 					<div className="flex justify-center">
 						<Link to="/" className="inline-block cursor-pointer items-center justify-center">
@@ -54,7 +54,7 @@ function Login() {
 							className="mt-5 self-center md:mt-9"
 							sitekey="6Les0ysnAAAAAG_EtghJQCTJ2aUjdG1NSuDwOhcL"
 						/>
-						<button className="mt-[18px] h-10 w-[90px] self-center rounded-lg bg-yellow-500/50 text-base text-gray-800 transition-colors hover:bg-yellow-500/75 md:mt-9 md:h-[56px] md:w-[180px] md:text-xl">
+						<button className="mt-[18px] h-10 w-[120px] self-center rounded-lg bg-yellow-500/50 text-base text-gray-800 transition-colors hover:bg-yellow-500/75 md:mt-9 md:h-[56px] md:w-[180px] md:text-xl">
 							ورود
 						</button>
 					</div>
@@ -66,8 +66,8 @@ function Login() {
 						ورود شما به معنای پذیرش شرایط و قوانین
 						<span className="text-yellow-500"> جهان‌ساز </span>است.
 					</span>
-				</div>
-			</section>
+				</section>
+			</main>
 			<Footer />
 		</>
 	);

@@ -1,6 +1,6 @@
 // react
 import React from 'react';
-import Title from '../Title/Title';
+import Title from '../DiamondTitle/Title';
 import ProductBox from '../ProductBox/ProductBox';
 
 // styles
@@ -14,9 +14,9 @@ function TopSeller() {
 	// jsx
 	return (
 		<section>
-			<div className="lg:my-[30px] flex items-center justify-center">
+			<div className="flex items-center justify-center lg:my-[30px]">
 				<svg
-					className="md:w-[130px] w-[75px]"
+					className="w-[75px] md:w-[130px]"
 					viewBox="0 0 134 98"
 					fill="none"
 					xmlns="http://www.w3.org/2000/svg"
@@ -46,7 +46,7 @@ function TopSeller() {
 			</div>
 			{/* header */}
 			<Title titleText="پرفروش ترین محصولات" />
-			<div className='grid grid-cols-2 lg:grid-cols-3'>
+			<div className="grid grid-cols-2 lg:grid-cols-3">
 				<ProductBox />
 				<ProductBox />
 				<ProductBox />
