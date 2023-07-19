@@ -86,7 +86,10 @@ function Header() {
 						{/* divider */}
 						<span className="mx-4 h-11 w-[1.5px] bg-yellow-500"></span>
 						{/* login - signup */}
-						<div className="flex cursor-pointer items-center justify-center rounded-xl px-1 py-2 transition-colors hover:bg-yellow-500/50">
+						<Link
+							to="/login"
+							className="flex cursor-pointer items-center justify-center rounded-xl px-1 py-2 transition-colors hover:bg-yellow-500/50"
+						>
 							{/* login icon */}
 							<div>
 								<svg
@@ -105,7 +108,7 @@ function Header() {
 								</svg>
 							</div>
 							<span className="mr-1 text-lg tracking-tighter">ورود |‌ ثبت‌نام</span>
-						</div>
+						</Link>
 					</div>
 				</div>
 			</header>

@@ -1,26 +1,35 @@
 // react
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 // styles
 
 // packages
 import ReCAPTCHA from 'react-google-recaptcha';
 import { Form, Formik } from 'formik';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 // components
 import Header from '../../Components/Header/Header';
 import Footer from '../../Components/Footer/Footer';
 import CurveTitle from '../../Components/CurveTitle/CurveTitle';
 import AuthInput from '../../Components/AuthInput/AuthInput';
+import { userLogin } from '../../Services/Axios/Requests/User';
 
 // login
 function Login() {
-  // document title
+	// document title
 	document.title = 'جهان‌ساز | JahanSaz - ورود';
 
 	// recaptcha Checkbox state
 	const [isCaptchaChecked, setIscaptchChecked] = useState(false);
+
+	// navigator
+	const navigate = useNavigate();
+
+	// is submit btn active
+	const [isDisable, setIsDisable] = useState(false);
 
 	// jsx
 	return (
@@ -47,15 +56,61 @@ function Login() {
 					</div>
 					{/* title */}
 					<div className="relative ">
-						<CurveTitle title="ورود به حساب کاربری" />
+						<CurveTitle
+							title="ورود به حساب کاربری"
+							haveButton={true}
+							buttonText="حساب‌کاربری ندارید؟"
+						/>
 					</div>
 					<Formik
+						// initial values
 						initialValues={{
 							username: '',
 							password: ''
 						}}
+						// submit event
 						onSubmit={(values) => {
-							isCaptchaChecked && console.log(values);
+							setIsDisable(true);
+
+							isCaptchaChecked &&
+								userLogin(values)
+									.then((res) => {
+										// show notification
+										if (res.status === 201) {
+											toast.success('با موفقیت وارد شدید ✅', {
+												position: 'bottom-right',
+												autoClose: 5000,
+												hideProgressBar: false,
+												closeOnClick: true,
+												pauseOnHover: false,
+												draggable: true,
+												progress: undefined,
+												theme: 'light'
+											});
+
+											// set token to localstorage
+											localStorage.setItem('user', res.data.accessToken);
+
+											// navigate to panel
+											setTimeout(() => navigate('/'), 4000);
+										}
+									})
+									.catch(() => {
+										// show notification
+										toast.error('اطلاعات وارد شده صحیح نمی‌باشد ❌', {
+											position: 'bottom-right',
+											autoClose: 5000,
+											hideProgressBar: false,
+											closeOnClick: true,
+											pauseOnHover: false,
+											draggable: true,
+											progress: undefined,
+											theme: 'light'
+										});
+
+										// reload page
+										setTimeout(() => location.reload(), 4000);
+									});
 						}}
 						validate={(values) => {
 							const errors = {};
@@ -65,8 +120,8 @@ function Login() {
 								errors.username = 'طول نام کاربری باید حداقل ۳ کاراکتر باشد!';
 
 							if (values.password === '') errors.password = 'وارد کردن رمزعبور اجباری می‌باشد!';
-							else if (values.password.length < 8)
-								errors.password = 'طول رمزعبور باید حداقل ۸ کاراکتر باشد!';
+							// else if (values.password.length < 8)
+							// 	errors.password = 'طول رمزعبور باید حداقل ۸ کاراکتر باشد!';
 
 							return errors;
 						}}
@@ -93,11 +148,12 @@ function Login() {
 								sitekey="6Les0ysnAAAAAG_EtghJQCTJ2aUjdG1NSuDwOhcL"
 							/>
 							<button
+								disabled={isDisable}
 								type="submit"
 								className="md:text-x mt-[18px] h-10 w-[120px] self-center rounded-lg bg-yellow-500/50  text-base text-gray-800 transition-colors hover:bg-yellow-500/70
-									md:mt-9 md:h-[56px] md:w-[180px] md:text-lg"
+									md:mt-9 md:h-[56px] md:w-[180px] md:text-xl"
 							>
-								ورود
+								{isDisable ? 'صبر کنید ⏳' : 'ورود'}
 							</button>
 						</Form>
 					</Formik>
@@ -111,6 +167,18 @@ function Login() {
 					</span>
 				</section>
 			</main>
+			<ToastContainer
+				position="bottom-right"
+				autoClose={5000}
+				hideProgressBar={false}
+				newestOnTop={false}
+				closeOnClick
+				rtl={true}
+				pauseOnFocusLoss={false}
+				draggable
+				pauseOnHover={false}
+				theme="light"
+			/>
 			<Footer />
 		</>
 	);

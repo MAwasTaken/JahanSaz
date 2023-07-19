@@ -10,8 +10,6 @@ import { Field, ErrorMessage } from 'formik';
 
 // auth input
 function AuthInput({ label, name, placeholder, type }) {
-	const [haveError, setHaveError] = useState(false);
-
 	// jsx
 	return (
 		<div className="mt-3 flex flex-col self-center md:mt-10">
@@ -22,9 +20,7 @@ function AuthInput({ label, name, placeholder, type }) {
 			{/* input */}
 			<Field
 				name={name}
-				className={`h-9 w-[200px] self-center rounded-md bg-gray-200 p-[10px] text-base text-gray-800 shadow placeholder:text-xs placeholder:text-gray-400 md:h-12 md:w-[360px] md:text-xl md:placeholder:text-base ${
-					haveError && 'border border-red-600'
-				}`}
+				className="h-9 w-[200px] self-center rounded-md bg-gray-200 p-[10px] text-sm text-gray-800 shadow placeholder:text-xs placeholder:text-gray-400 md:h-12 md:w-[360px] md:text-xl md:placeholder:text-base"
 				placeholder={placeholder}
 				type={type}
 			/>

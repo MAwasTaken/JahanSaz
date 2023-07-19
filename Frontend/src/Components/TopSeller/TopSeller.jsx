@@ -63,7 +63,12 @@ function TopSeller() {
 				</svg>
 			</div>
 			{/* header */}
-			<Title titleText="پرفروش ترین محصولات" />
+			<Title
+				titleText="پرفروش ترین محصولات"
+				haveButton={true}
+				buttonText="همه محصولات"
+				buttonHref="/"
+			/>
 			<div className="grid grid-cols-2 lg:grid-cols-3">
 				{topSellers.map((product, index) => (
 					<ProductBox
