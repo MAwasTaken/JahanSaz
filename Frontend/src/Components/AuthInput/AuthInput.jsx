@@ -1,5 +1,5 @@
 // react
-import React, { useState } from 'react';
+import React from 'react';
 
 // styles
 
@@ -15,7 +15,7 @@ function AuthInput({ label, name, placeholder, type }) {
 		<div className="mt-3 flex flex-col self-center md:mt-10">
 			{/* label */}
 			<span className="absolute right-[10px] text-sm font-bold leading-10 tracking-tighter text-zinc-700 md:text-xl md:leading-[48px]">
-				{label}:
+				{label}
 			</span>
 			{/* input */}
 			<Field

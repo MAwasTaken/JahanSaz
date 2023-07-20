@@ -15,6 +15,9 @@ import Footer from '../../Components/Footer/Footer';
 
 // index
 function Index() {
+	// document title
+	document.title = 'جهان‌ساز | JahanSaz';
+
 	// jsx
 	return (
 		<>

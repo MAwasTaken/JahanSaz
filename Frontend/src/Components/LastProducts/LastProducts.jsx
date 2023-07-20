@@ -46,7 +46,8 @@ function LastProducts() {
 			<Swiper
 				loop={true}
 				autoplay={{
-					delay: 5000
+					delay: 2500,
+					disableOnInteraction: false
 				}}
 				slidesPerView={2}
 				breakpoints={{

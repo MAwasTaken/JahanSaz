@@ -115,7 +115,8 @@ function Header() {
 			{/* mobile header */}
 			<div className="fixed top-0 z-50 w-screen bg-gray-300/50 shadow-md backdrop-blur-[6px] md:hidden">
 				<div className="flex items-center justify-between">
-					<div className="m-2 p-2">
+					{/* user */}
+					<Link to="/login" className="m-2 p-2">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							fill="none"
@@ -130,9 +131,10 @@ function Header() {
 								d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
 							/>
 						</svg>
-					</div>
+					</Link>
+					{/* logo */}
 					<div>
-						<Link>
+						<Link to="/">
 							<svg
 								width="79"
 								height="70"
@@ -147,6 +149,7 @@ function Header() {
 							</svg>
 						</Link>
 					</div>
+					{/* cart */}
 					<div className="m-2 p-2">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"

@@ -3,12 +3,12 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 // styles
+import 'react-toastify/dist/ReactToastify.css';
 
 // packages
 import ReCAPTCHA from 'react-google-recaptcha';
 import { Form, Formik } from 'formik';
 import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 // components
 import Header from '../../Components/Header/Header';
@@ -70,11 +70,10 @@ function Login() {
 						}}
 						// submit event
 						onSubmit={(values) => {
-							setIsDisable(true);
-
 							isCaptchaChecked &&
 								userLogin(values)
 									.then((res) => {
+										setIsDisable(true);
 										// show notification
 										if (res.status === 201) {
 											toast.success('با موفقیت وارد شدید ✅', {
@@ -120,8 +119,8 @@ function Login() {
 								errors.username = 'طول نام کاربری باید حداقل ۳ کاراکتر باشد!';
 
 							if (values.password === '') errors.password = 'وارد کردن رمزعبور اجباری می‌باشد!';
-							// else if (values.password.length < 8)
-							// 	errors.password = 'طول رمزعبور باید حداقل ۸ کاراکتر باشد!';
+							else if (values.password.length < 8)
+								errors.password = 'طول رمزعبور باید حداقل ۸ کاراکتر باشد!';
 
 							return errors;
 						}}
@@ -167,6 +166,7 @@ function Login() {
 					</span>
 				</section>
 			</main>
+      {/* toastify */}
 			<ToastContainer
 				position="bottom-right"
 				autoClose={5000}
