@@ -16,6 +16,7 @@ import Footer from '../../Components/Footer/Footer';
 import CurveTitle from '../../Components/CurveTitle/CurveTitle';
 import AuthInput from '../../Components/AuthInput/AuthInput';
 import { userLogin } from '../../Services/Axios/Requests/User';
+import { userLoginSchema } from '../../Services/Yup/Login';
 
 // login
 function Login() {
@@ -68,12 +69,15 @@ function Login() {
 							username: '',
 							password: ''
 						}}
+						// validation
+						validationSchema={userLoginSchema}
 						// submit event
 						onSubmit={(values) => {
 							isCaptchaChecked &&
 								userLogin(values)
 									.then((res) => {
 										setIsDisable(true);
+
 										// show notification
 										if (res.status === 201) {
 											toast.success('با موفقیت وارد شدید ✅', {
@@ -111,19 +115,6 @@ function Login() {
 										setTimeout(() => location.reload(), 4000);
 									});
 						}}
-						validate={(values) => {
-							const errors = {};
-
-							if (values.username === '') errors.username = 'وارد کردن نام‌کاربری اجباری می‌باشد!';
-							else if (values.username.length < 3)
-								errors.username = 'طول نام کاربری باید حداقل ۳ کاراکتر باشد!';
-
-							if (values.password === '') errors.password = 'وارد کردن رمزعبور اجباری می‌باشد!';
-							else if (values.password.length < 8)
-								errors.password = 'طول رمزعبور باید حداقل ۸ کاراکتر باشد!';
-
-							return errors;
-						}}
 					>
 						<Form className="relative flex flex-col gap-y-5">
 							{/* username */}
@@ -142,6 +133,7 @@ function Login() {
 							/>
 							{/* google recaptcha */}
 							<ReCAPTCHA
+								type="image"
 								onChange={() => setIscaptchChecked(!isCaptchaChecked)}
 								className="mt-5 self-center md:mt-9"
 								sitekey="6Les0ysnAAAAAG_EtghJQCTJ2aUjdG1NSuDwOhcL"
@@ -166,7 +158,7 @@ function Login() {
 					</span>
 				</section>
 			</main>
-      {/* toastify */}
+			{/* toastify */}
 			<ToastContainer
 				position="bottom-right"
 				autoClose={5000}
