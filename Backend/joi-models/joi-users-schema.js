@@ -3,6 +3,10 @@ const joi = require('joi');
 const schema = joi.object({
 	username: joi.string().alphanum().min(3).max(30).required(),
 
+	firstname:joi.string().alphanum().min(3).max(30).required(),
+
+	lastName:joi.string().alphanum().min(3).max(30).required(),
+
 	password: joi.string().pattern(new RegExp('^[a-zA-Z0-9]{8,30}$')),
 
 	email: joi.string().email({ minDomainSegments: 2, tlds: { allow: ['com', 'ir', 'net', 'org'] } }),
