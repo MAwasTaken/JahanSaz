@@ -1,5 +1,7 @@
+// yup
 import { object, string } from 'yup';
 
+// login authorization
 const userLoginSchema = object().shape({
 	username: string()
 		.min(3, 'طول نام کاربری باید حداقل ۳ کاراکتر باشد!')
@@ -10,4 +12,5 @@ const userLoginSchema = object().shape({
 		.required('وارد کردن رمزعبور اجباری می‌باشد!')
 });
 
+// exports
 export { userLoginSchema };

@@ -31,7 +31,7 @@ function TopSeller() {
 
 	// jsx
 	return (
-		<section>
+		<section className={`mt-5 md:mt-10 ${isSectionAvailable ? null : 'hidden'}`}>
 			<div className="flex items-center justify-center lg:my-[30px]">
 				<svg
 					className="w-[75px] md:w-[130px]"
