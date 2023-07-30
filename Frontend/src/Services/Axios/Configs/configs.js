@@ -20,7 +20,7 @@ axiosInstance.interceptors.response.use(
 		return response;
 	},
 	(err) => {
-		console.log(`%c Axios-Error(${err.config.url}):`, 'color: #ef4444', err.response.data, err);
+		console.log(`%c Axios-Error(${err.config.url}):`, 'color: #ef4444', err);
 
 		return Promise.reject(err);
 	}

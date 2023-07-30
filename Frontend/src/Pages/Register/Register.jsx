@@ -15,16 +15,13 @@ import Header from '../../Components/Header/Header';
 import Footer from '../../Components/Footer/Footer';
 import CurveTitle from '../../Components/CurveTitle/CurveTitle';
 import AuthInput from '../../Components/AuthInput/AuthInput';
-import { userLogin } from '../../Services/Axios/Requests/User';
-import { userLoginSchema } from '../../Services/Yup/LoginAuth';
+import { userRegister } from '../../Services/Axios/Requests/User';
+import { userRegisterSchema } from '../../Services/Yup/RegisterAuth';
 
-// login
-function Login() {
+// register
+function Register() {
 	// document title
-	document.title = 'جهان‌ساز | JahanSaz - ورود';
-
-	// recaptcha Checkbox state
-	const [isCaptchaChecked, setIscaptchChecked] = useState(false);
+	document.title = 'جهان‌ساز | JahanSaz - ثبت‌نام';
 
 	// navigator
 	const navigate = useNavigate();
@@ -32,12 +29,15 @@ function Login() {
 	// is submit btn active
 	const [isDisable, setIsDisable] = useState(false);
 
+	// recaptcha Checkbox state
+	const [isCaptchaChecked, setIscaptchChecked] = useState(false);
+
 	// jsx
 	return (
 		<>
 			<Header />
 			<main className="container">
-				{/* login */}
+				{/* register */}
 				<section className="mx-auto max-w-[650px] rounded-2xl bg-white/50 p-[10px] shadow-product md:p-5">
 					{/* logo */}
 					<div className="flex justify-center">
@@ -58,28 +58,36 @@ function Login() {
 					{/* title */}
 					<div className="relative ">
 						<CurveTitle
-							title="ورود به حساب کاربری"
+							title=" ساخت حساب کاربری"
 							haveButton={true}
-							buttonText="حساب‌کاربری ندارید؟"
-							buttonHref="/register"
+							buttonText="حساب‌کاربری دارید؟"
+							buttonHref="/login"
 						/>
 					</div>
 					<Formik
 						// initial values
 						initialValues={{
+							firstname: '',
+							lastName: '',
+							phoneNumber: '',
+							email: '',
 							username: '',
 							password: ''
 						}}
 						// validation
-						validationSchema={userLoginSchema}
+						validationSchema={userRegisterSchema}
 						// submit event
 						onSubmit={(values) => {
-							// set submit button disable
-							setIsDisable(true);
+							let userInfos = values;
+							userInfos.isAdmin = false;
+              
+              // set submit button disable
+              setIsDisable(true);
 
 							isCaptchaChecked &&
-								userLogin(values)
+								userRegister(userInfos)
 									.then((res) => {
+
 										// show notification
 										if (res.status === 201) {
 											toast.success('با موفقیت وارد شدید ✅', {
@@ -119,6 +127,29 @@ function Login() {
 						}}
 					>
 						<Form className="relative flex flex-col gap-y-5">
+							{/* firstname */}
+							<AuthInput label="نام" name="firstname" placeholder="مثلا: حسین" type="text" />
+							{/* lastName */}
+							<AuthInput
+								label="نام‌خانوادگی"
+								name="lastName"
+								placeholder="مثلا: جهان‌دیده"
+								type="text"
+							/>
+							{/* phonenumber */}
+							<AuthInput
+								label="شماره‌تماس"
+								name="phoneNumber"
+								placeholder="مثلا: 09123456789"
+								type="text"
+							/>
+							{/* email */}
+							<AuthInput
+								label="ایمیل"
+								name="email"
+								placeholder="مثلا: jahansaz@gmail.com"
+								type="email"
+							/>
 							{/* username */}
 							<AuthInput
 								label="نام کاربری"
@@ -144,9 +175,9 @@ function Login() {
 								disabled={isDisable}
 								type="submit"
 								className="md:text-x mt-[18px] h-10 w-[120px] self-center rounded-lg bg-yellow-500/50  text-base text-gray-800 transition-colors hover:bg-yellow-500/70
-									md:mt-9 md:h-[56px] md:w-[180px] md:text-xl"
+                md:mt-9 md:h-[56px] md:w-[180px] md:text-xl"
 							>
-								{isDisable ? 'صبر کنید ⏳' : 'ورود'}
+								{isDisable ? 'صبر کنید ⏳' : 'ثبت‌نام'}
 							</button>
 						</Form>
 					</Formik>
@@ -179,4 +210,4 @@ function Login() {
 }
 
 // exports
-export default Login;
+export default Register;

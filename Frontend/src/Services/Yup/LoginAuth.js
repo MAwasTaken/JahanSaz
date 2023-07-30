@@ -5,8 +5,8 @@ import { object, string } from 'yup';
 const userLoginSchema = object().shape({
 	username: string()
 		.min(3, 'طول نام کاربری باید حداقل ۳ کاراکتر باشد!')
+		.max(30, 'طول نام‌کاربری باید حداکثر ۳۰ کاراکتر باشد!')
 		.required('وارد کردن نام‌کاربری اجباری می‌باشد!'),
-
 	password: string()
 		.min(8, 'طول رمزعبور باید حداقل ۸ کاراکتر باشد!')
 		.required('وارد کردن رمزعبور اجباری می‌باشد!')

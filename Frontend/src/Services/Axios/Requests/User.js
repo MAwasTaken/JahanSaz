@@ -1,8 +1,11 @@
 // axios
 import axiosInstance from '../Configs/configs';
 
-// LOGIN
+// POST login
 const userLogin = async (userInfos) => axiosInstance.post('/auth/login', userInfos);
 
-// exports 
-export { userLogin };
+// POST register
+const userRegister = async (userInfos) => axiosInstance.post('/auth/register', userInfos);
+
+// exports
+export { userLogin, userRegister };
