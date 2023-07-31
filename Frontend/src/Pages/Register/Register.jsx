@@ -67,7 +67,7 @@ function Register() {
 					<Formik
 						// initial values
 						initialValues={{
-							firstname: '',
+							firstName: '',
 							lastName: '',
 							phoneNumber: '',
 							email: '',
@@ -80,17 +80,16 @@ function Register() {
 						onSubmit={(values) => {
 							let userInfos = values;
 							userInfos.isAdmin = false;
-              
-              // set submit button disable
-              setIsDisable(true);
+
+							// set submit button disable
+							setIsDisable(true);
 
 							isCaptchaChecked &&
 								userRegister(userInfos)
 									.then((res) => {
-
 										// show notification
-										if (res.status === 201) {
-											toast.success('با موفقیت وارد شدید ✅', {
+										if (res.status === 200) {
+											toast.success('با موفقیت ثبت نام شدید ✅', {
 												position: 'bottom-right',
 												autoClose: 5000,
 												hideProgressBar: false,
@@ -105,7 +104,7 @@ function Register() {
 											localStorage.setItem('user', res.data.accessToken);
 
 											// navigate to panel
-											setTimeout(() => navigate('/'), 4000);
+											setTimeout(() => navigate('/login'), 4000);
 										}
 									})
 									.catch(() => {
@@ -128,7 +127,7 @@ function Register() {
 					>
 						<Form className="relative flex flex-col gap-y-5">
 							{/* firstname */}
-							<AuthInput label="نام" name="firstname" placeholder="مثلا: حسین" type="text" />
+							<AuthInput label="نام" name="firstName" placeholder="مثلا: حسین" type="text" />
 							{/* lastName */}
 							<AuthInput
 								label="نام‌خانوادگی"
@@ -204,6 +203,7 @@ function Register() {
 				pauseOnHover={false}
 				theme="light"
 			/>
+			{/* footer */}
 			<Footer />
 		</>
 	);

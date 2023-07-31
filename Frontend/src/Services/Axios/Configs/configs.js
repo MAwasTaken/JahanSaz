@@ -15,7 +15,12 @@ axiosInstance.interceptors.request.use(
 // response interceptors
 axiosInstance.interceptors.response.use(
 	(response) => {
-		console.log(`%c Axios-Success(${response.config.url}):`, 'color: #22c55e', response.data);
+		console.log(
+			`%c Axios-Success(${response.config.url})` + `%c ${response.status}`,
+			'color: #22c55e',
+			'color: #eab308',
+			response.data
+		);
 
 		return response;
 	},

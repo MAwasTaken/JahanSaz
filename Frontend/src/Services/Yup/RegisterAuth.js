@@ -3,7 +3,7 @@ import { object, string } from 'yup';
 
 // register authorization
 const userRegisterSchema = object().shape({
-	firstname: string()
+	firstName: string()
 		.min(3, 'طول نام باید حداقل ۳ حرف باشد!')
 		.max(30, 'طول نام باید حداکثر ۳۰ حرف باشد!')
 		.required('وارد کردن نام اجباری می‌باشد!'),
