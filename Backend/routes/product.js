@@ -1,6 +1,7 @@
 const Product = require('../models/Products');
+const { countDocuments } = require('../models/Users');
 
-const { verifyToken, verifyTokenAndAuth, verifyTokenAndAdmin } = require('./varifyToken');
+const { verifyTokenAndAdmin } = require('./varifyToken');
 
 const router = require('express').Router();
 
@@ -57,8 +58,11 @@ router.get('/', async (req, res) => {
 	const qNew = req.query.new;
 	const qSearch = req.query.search;
 	const qBestSeller = req.query.bestseller;
+	const qPage = req.query.page - 1;
+	const qPagesCount = req.query.pagescount;
 	try {
 		let products;
+		let pages;
 
 		if (qNew) {
 			products = await Product.find().sort({ createdAt: -1 }).limit(qNew);
@@ -68,11 +72,18 @@ router.get('/', async (req, res) => {
 			}).sort({ createdAt: -1 });
 		} else if (qBestSeller) {
 			products = await Product.find().sort({ best_seller: -1 }).limit(qBestSeller);
+		} else if (qPage) {
+			products = await Product.find()
+				.skip(qPage * 9)
+				.limit(9);
+		} else if (qPagesCount) {
+			const countDocuments = await Product.countDocuments();
+			pages = Math.ceil(countDocuments / 9);
 		} else {
 			products = await Product.find();
 		}
 
-		res.status(200).json(products);
+		res.status(200).json({ products, pages });
 	} catch (err) {
 		res.status(500).json(err);
 	}
