@@ -1,6 +1,7 @@
 const joi = require('joi');
 
-const schema = joi.object({
+// USER JOI MODEL  (A model for validation)
+const model = joi.object({
 	username: joi.string().alphanum().min(3).max(30).required(),
 
 	firstName: joi.string(),
@@ -16,4 +17,5 @@ const schema = joi.object({
 	phoneNumber: joi.string().pattern(new RegExp('^09[0|1|2|3][0-9]{8}$'))
 });
 
-module.exports = schema;
+// export the models
+module.exports = model;

@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+// ORDER DB SCHEMA MODEL
 const OrdersSchema = new mongoose.Schema(
 	{
 		userId: { type: String, required: true },
@@ -21,4 +22,5 @@ const OrdersSchema = new mongoose.Schema(
 	{ timestamps: true }
 );
 
+// export the model
 module.exports = mongoose.model('Orders', OrdersSchema);

@@ -1,6 +1,6 @@
-const { number } = require('joi');
 const mongoose = require('mongoose');
 
+// PRODUCT DB SCHEMA MODEL
 const ProductsSchema = new mongoose.Schema(
 	{
 		productName: { type: String, require: true, unique: true },
@@ -24,4 +24,5 @@ const ProductsSchema = new mongoose.Schema(
 	{ timestamps: true }
 );
 
+// export the model
 module.exports = mongoose.model('Products', ProductsSchema);

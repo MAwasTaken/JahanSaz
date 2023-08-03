@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+// USERR DB SCHEMA MODEL
 const UsersSchema = new mongoose.Schema(
 	{
 		username: { type: String, required: true, unique: true },
@@ -16,4 +17,5 @@ const UsersSchema = new mongoose.Schema(
 	{ timestamps: true }
 );
 
+// export the model
 module.exports = mongoose.model('Users', UsersSchema);
