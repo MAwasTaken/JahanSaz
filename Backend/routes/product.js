@@ -74,22 +74,29 @@ router.get('/', async (req, res) => {
 	const qSearch = req.query.search;
 	const qBestSeller = req.query.bestseller;
 	const qPage = req.query.page - 1;
-	const qPagesCount = req.query.pagescount;
+	const qCategory = req.query.category;
 
 	try {
 		//Define the response objects
 		let products;
-		let pages;
 
 		// if there is "new" query
 		if (qNew) {
 			//return the newest Products
 			products = await Product.find().sort({ createdAt: -1 }).limit(qNew);
+		} // if there is "Category" query
+		else if (qCategory) {
+			//return the Products in that categories
+			products = await Product.find({
+				categories: {
+					$in: [qCategory.trim()]
+				}
+			});
 		} // if there is "Search" query
 		else if (qSearch) {
 			// search in Products and return the resualt
 			products = await Product.find({
-				productName: { $regex: qSearch }
+				productName: { $regex: qSearch.trim() }
 			}).sort({ createdAt: -1 });
 		} // if there is "BestSeller" query
 		else if (qBestSeller) {
@@ -101,18 +108,41 @@ router.get('/', async (req, res) => {
 			products = await Product.find()
 				.skip(qPage * 9)
 				.limit(9);
-		} // if there is "PagesCount" query
-		else if (qPagesCount) {
-			// calculate and return the number of pages
-			const countDocuments = await Product.countDocuments();
-			pages = Math.ceil(countDocuments / 9);
 		} else {
 			//return All Products
 			products = await Product.find();
 		}
 
 		// set the response
-		res.status(200).json({ products, pages });
+		res.status(200).json(products);
+	} catch (err) {
+		res.status(500).json(err);
+		console.log(err);
+	}
+});
+
+// GET ALL Categories
+router.get('/getCategories', async (req, res) => {
+	try {
+		let categories = [];
+		const product = await Product.find();
+		product.forEach((element) => {
+			categories = categories.concat(element.categories);
+		});
+		const result = categories.filter((item, idx) => categories.indexOf(item) === idx);
+
+		res.status(200).json(result);
+	} catch (err) {
+		res.status(500).json(err);
+	}
+});
+
+//GET the Number of Pages
+router.get('/getNumberOfPages', async (req, res) => {
+	try {
+		const countDocuments = await Product.countDocuments();
+		pages = Math.ceil(countDocuments / 9);
+		res.status(200).json(pages);
 	} catch (err) {
 		res.status(500).json(err);
 	}
