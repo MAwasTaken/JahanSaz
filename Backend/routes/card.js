@@ -1,6 +1,10 @@
 // dependency imports
 const Cart = require('../models/Card');
-const { verifyToken, verifyTokenAndAuth, verifyTokenAndAdmin } = require('./varifyToken');
+const {
+	verifyToken,
+	verifyTokenAndAuth,
+	verifyTokenAndAdmin
+} = require('../middleware/varifyToken');
 const router = require('express').Router();
 
 //CREATE router

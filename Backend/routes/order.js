@@ -1,7 +1,11 @@
 // dependency imports
 const Order = require('../models/Orders');
 const product = require('../models/Products');
-const { verifyToken, verifyTokenAndAuth, verifyTokenAndAdmin } = require('./varifyToken');
+const {
+	verifyToken,
+	verifyTokenAndAuth,
+	verifyTokenAndAdmin
+} = require('../middleware/varifyToken');
 const router = require('express').Router();
 
 //CREATE router

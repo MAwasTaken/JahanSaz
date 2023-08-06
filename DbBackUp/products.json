@@ -162,28 +162,29 @@
   "__v": 0
 },{
   "_id": {
-    "$oid": "64b5adcd0ed9fe861e08d2ee"
+    "$oid": "64d015a887f66d797c5b92b1"
   },
-  "productName": "فویل آلمینیومی ضخیم",
-  "price": 80000,
+  "productName": "TEST",
+  "price": 2000,
   "categories": [
-    "آلمینیوم"
+    "گروه 1",
+    "گروه 2"
   ],
-  "QTY": 14500,
+  "QTY": 1000,
   "images": [
-    "lenvfnk;nregaekga5484ah/ahteh"
+    "productImages\\desk_glasses_instruction_rubiks_cube_54375_1920x1080.jpg"
   ],
-  "description": "روکش آلمینیومی",
-  "size": "55 cm",
-  "best_seller": 3,
+  "description": "محصول تست است",
+  "size": "9*9",
+  "best_seller": 0,
   "createdAt": {
     "$date": {
-      "$numberLong": "1689628109598"
+      "$numberLong": "1691358632020"
     }
   },
   "updatedAt": {
     "$date": {
-      "$numberLong": "1689628897612"
+      "$numberLong": "1691358632020"
     }
   },
   "__v": 0

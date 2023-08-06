@@ -1,7 +1,7 @@
 // dependency imports
 const User = require('../models/Users');
 const router = require('express').Router();
-const { verifyTokenAndAuth, verifyTokenAndAdmin } = require('./varifyToken');
+const { verifyTokenAndAuth, verifyTokenAndAdmin } = require('../middleware/varifyToken');
 const CryptoJS = require('crypto-js');
 const userJoi = require('../joi-models/joi-users-schema');
 

@@ -1,12 +1,19 @@
 // dependency imports
 const Product = require('../models/Products');
-const { verifyTokenAndAdmin } = require('./varifyToken');
+const { verifyTokenAndAdmin } = require('../middleware/varifyToken');
+const uploader = require('../middleware/uploader');
+
 const router = require('express').Router();
+const fs = require('fs');
 
 //CREATE router
-router.post('/', verifyTokenAndAdmin, async (req, res) => {
+router.post('/', verifyTokenAndAdmin, uploader.array('images', 12), async (req, res) => {
 	// create the Product object
-	const newProduct = new Product(req.body);
+	let newProduct = new Product(req.body);
+
+	// set the uploaded images address
+	let images = req.files.map((element) => element.path);
+	newProduct.images = images;
 
 	try {
 		// save the user in DB
@@ -21,13 +28,14 @@ router.post('/', verifyTokenAndAdmin, async (req, res) => {
 });
 
 //UPDATE router
-router.put('/:id', verifyTokenAndAdmin, async (req, res) => {
+router.put('/:id', verifyTokenAndAdmin, uploader.array('images', 12), async (req, res) => {
 	try {
 		// find the Product by ID and update it
 		const updatedProduct = await Product.findByIdAndUpdate(
 			req.params.id,
 			{
-				$set: req.body
+				$set: req.body,
+				images: req.files.map((element) => element.path)
 			},
 			{ new: true }
 		);
@@ -44,12 +52,18 @@ router.put('/:id', verifyTokenAndAdmin, async (req, res) => {
 router.delete('/:id', verifyTokenAndAdmin, async (req, res) => {
 	try {
 		// find By Id And Delete the Product
-		await Product.findByIdAndDelete(req.params.id);
+		const deletedProduct = await Product.findByIdAndDelete(req.params.id);
+
+		// delete the related images from the server
+		deletedProduct.images.forEach((Image) => {
+			fs.unlinkSync(Image);
+		});
 
 		//set the respone
 		res.status(200).json('Product has been deleted...');
 	} catch (err) {
 		// return the err if there is one
+		console.log(err);
 		res.status(500).json(err);
 	}
 });
