@@ -26,11 +26,12 @@ function LastProducts() {
 		// GET all last products when mounting
 		getLastProducts()
 			.then((res) => {
-				setAllProducts(res.data);
+				setAllProducts(res.data.products);
 				setIsSectionAvailable(true);
 			})
 			.catch(() => setIsSectionAvailable(false));
 	}, []);
+
 
 	// jsx
 	return (

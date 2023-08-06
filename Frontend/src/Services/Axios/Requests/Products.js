@@ -7,5 +7,8 @@ const getLastProducts = async (count = 6) => axiosInstance.get(`/products?new=${
 // GET best sellers products
 const getTopSellers = async (count = 12) => axiosInstance.get(`/products?bestseller=${count}`);
 
+// GET all products
+const getAllProducts = async () => axiosInstance.get('/products');
+
 // exports
-export { getLastProducts, getTopSellers };
+export { getLastProducts, getTopSellers, getAllProducts };

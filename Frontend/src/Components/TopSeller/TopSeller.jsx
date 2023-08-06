@@ -23,7 +23,7 @@ function TopSeller() {
 		// GET all top sellers products when mounting
 		getTopSellers()
 			.then((res) => {
-				setAllTopSellers(res.data);
+				setAllTopSellers(res.data.products);
 				setIsSectionAvailable(true);
 			})
 			.catch(() => setIsSectionAvailable(false));
