@@ -30,6 +30,11 @@ router.post('/', verifyTokenAndAdmin, uploader.array('images', 12), async (req, 
 //UPDATE router
 router.put('/:id', verifyTokenAndAdmin, uploader.array('images', 12), async (req, res) => {
 	try {
+		const oldProduct = await Product.findById(req.params.id);
+		oldProduct.images.forEach((Image) => {
+			fs.unlinkSync(Image);
+		});
+
 		// find the Product by ID and update it
 		const updatedProduct = await Product.findByIdAndUpdate(
 			req.params.id,
@@ -44,6 +49,7 @@ router.put('/:id', verifyTokenAndAdmin, uploader.array('images', 12), async (req
 		res.status(200).json(updatedProduct);
 	} catch (err) {
 		// return the err if there is one
+		console.log(err);
 		res.status(500).json(err);
 	}
 });
