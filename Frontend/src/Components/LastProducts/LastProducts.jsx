@@ -1,5 +1,5 @@
 // react
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 
 // styles
 import 'swiper/css';
@@ -8,34 +8,31 @@ import 'swiper/css';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 
+// redux
+import { useDispatch, useSelector } from 'react-redux';
+import { getLastProductsFromServer } from '../../Services/Redux/Slices/Products';
+
 // components
 import Title from '../DiamondTitle/DiamondTitle';
 import ProductBox from '../ProductBox/ProductBox';
-import { getLastProducts } from '../../Services/Axios/Requests/Products';
 
 // last products
 function LastProducts() {
-	// show the section when the request is successful
-	const [isSectionAvailable, setIsSectionAvailable] = useState(false);
-
-	// last products
-	const [allProducts, setAllProducts] = useState([]);
+	// dispatch
+	const dispatch = useDispatch();
 
 	// mounting SideEffects
 	useEffect(() => {
 		// GET all last products when mounting
-		getLastProducts()
-			.then((res) => {
-				setAllProducts(res.data.products);
-				setIsSectionAvailable(true);
-			})
-			.catch(() => setIsSectionAvailable(false));
+		dispatch(getLastProductsFromServer());
 	}, []);
 
+	// GET last products from state
+	const lastProducts = useSelector((state) => state.products);
 
 	// jsx
 	return (
-		<section className={`mt-5 md:mt-10 ${isSectionAvailable ? null : 'hidden'}`}>
+		<section className="mt-5 md:mt-10">
 			{/* header */}
 			<Title
 				titleText="جدیدترین محصولات"
@@ -58,7 +55,7 @@ function LastProducts() {
 				}}
 				modules={[Autoplay]}
 			>
-				{allProducts.map((product, index) => (
+				{lastProducts.map((product, index) => (
 					<SwiperSlide key={index}>
 						<ProductBox
 							productCover={product.images}

@@ -10,5 +10,12 @@ const getTopSellers = async (count = 12) => axiosInstance.get(`/products?bestsel
 // GET all products
 const getAllProducts = async () => axiosInstance.get('/products');
 
+// GET all categories
+const getAllCategories = async () => axiosInstance.get(`products/getCategories`);
+
+// GET categorized products
+const getFilteredProducts = async (categoryName) =>
+	axiosInstance.get(`products?category=${categoryName}`);
+
 // exports
-export { getLastProducts, getTopSellers, getAllProducts };
+export { getLastProducts, getTopSellers, getAllProducts, getAllCategories, getFilteredProducts };

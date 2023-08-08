@@ -1,6 +1,5 @@
 // react
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 // styles
 
@@ -9,11 +8,14 @@ import { Link } from 'react-router-dom';
 // components
 
 // category
-function Category({ categoryName }) {
+function Category({ categoryName, changeFilterHandler }) {
 	return (
-		<Link className="rounded-lg hover:bg-black/20 transition-colors bg-black/10 p-1 md:p-2 text-base md:text-xl font-bold tracking-tighter text-zinc-700">
+		<button
+			onClick={() => changeFilterHandler(categoryName)}
+			className="rounded-lg bg-black/10 p-1 text-base font-bold tracking-tighter text-zinc-700 transition-colors hover:bg-black/20 md:p-2 md:text-xl"
+		>
 			{categoryName}
-		</Link>
+		</button>
 	);
 }
 

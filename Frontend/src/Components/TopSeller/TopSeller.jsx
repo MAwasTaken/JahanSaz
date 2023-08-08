@@ -1,37 +1,31 @@
 // react
-import React, { useEffect, useState } from 'react';
-import Title from '../DiamondTitle/DiamondTitle';
-import ProductBox from '../ProductBox/ProductBox';
-import { getTopSellers } from '../../Services/Axios/Requests/Products';
+import React, { useEffect } from 'react';
 
-// styles
-
-// packages
+// redux
+import { useDispatch, useSelector } from 'react-redux';
+import { getTopSellersProductsFromServer } from '../../Services/Redux/Slices/Products';
 
 // components
+import Title from '../DiamondTitle/DiamondTitle';
+import ProductBox from '../ProductBox/ProductBox';
 
 // top seller
 function TopSeller() {
-	// show the section when the request is successful
-	const [isSectionAvailable, setIsSectionAvailable] = useState(false);
-
-	// last products
-	const [topSellers, setAllTopSellers] = useState([]);
+	// dispatch
+	const dispatch = useDispatch();
 
 	// mounting SideEffects
 	useEffect(() => {
-		// GET all top sellers products when mounting
-		getTopSellers()
-			.then((res) => {
-				setAllTopSellers(res.data.products);
-				setIsSectionAvailable(true);
-			})
-			.catch(() => setIsSectionAvailable(false));
+		// GET top sellers products when mounting
+		dispatch(getTopSellersProductsFromServer());
 	}, []);
+
+	// select top sellers products from state
+	const topSellers = useSelector((state) => state.products);
 
 	// jsx
 	return (
-		<section className={`mt-5 md:mt-10 ${isSectionAvailable ? null : 'hidden'}`}>
+		<section className="mt-5 md:mt-10">
 			<div className="flex items-center justify-center lg:my-[30px]">
 				<svg
 					className="w-[75px] md:w-[130px]"
