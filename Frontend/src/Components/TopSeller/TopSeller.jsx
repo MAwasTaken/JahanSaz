@@ -61,7 +61,7 @@ function TopSeller() {
 				titleText="پرفروش ترین محصولات"
 				haveButton={true}
 				buttonText="همه محصولات"
-				buttonHref="/"
+				buttonHref="/products"
 			/>
 			<div className="grid grid-cols-2 lg:grid-cols-3">
 				{topSellers.map((product, index) => (

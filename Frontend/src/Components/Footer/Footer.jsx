@@ -68,7 +68,7 @@ function Footer() {
 						<ul className="mr-4 mt-[10px] list-disc">
 							<FooterDiskLinks title="صفحه اصلی" href="/" />
 							<FooterDiskLinks title="پنل کاربری" href="/" />
-							<FooterDiskLinks title="همه محصولات" href="/" />
+							<FooterDiskLinks title="همه محصولات" href="/products" />
 						</ul>
 					</div>
 					{/* contact us */}
@@ -111,7 +111,11 @@ function Footer() {
 			{/* creator */}
 			<span className="block w-full py-4 text-center text-[10px] font-bold text-gray-600 md:py-6 md:text-sm">
 				ساخته شده با 💚 توسط{' '}
-				<Link target='_blank' to="https://github.com/MAwasTaken" className="text-teal-600 hover:animate-pulse">
+				<Link
+					target="_blank"
+					to="https://github.com/MAwasTaken"
+					className="text-teal-600 hover:animate-pulse"
+				>
 					مهدی عبداللهی
 				</Link>{' '}
 				و <Link className="text-teal-600 hover:animate-pulse">حسین جهان‌دیده</Link>

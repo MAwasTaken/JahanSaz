@@ -1,5 +1,6 @@
 // react
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 // styles
 
@@ -30,12 +31,15 @@ function Landing() {
 						از تولید به مصرف بدون واسطه!
 					</h2>
 					<div className="w-[90%] md:w-auto">
-						<div className="flex flex-row items-center justify-between md:flex-col gap-y-3">
+						<div className="flex flex-row items-center justify-between gap-y-3 md:flex-col">
 							{/* landing buy btn */}
-							<button className="mt-7 flex items-center justify-between gap-2 rounded-lg bg-yellow-500/50 p-5 text-xl font-bold text-gray-800 transition-colors hover:bg-yellow-500/75 md:mt-[50px]">
+							<Link
+								to="/products"
+								className="mt-7 flex items-center justify-between gap-2 rounded-lg bg-yellow-500/50 p-5 text-xl font-bold text-gray-800 transition-colors hover:bg-yellow-500/75 md:mt-[50px]"
+							>
 								خرید از جهان‌ساز
 								<PiArrowLeftFill className="h-6 w-6" />
-							</button>
+							</Link>
 							{/* landing arrow down */}
 							<div className="mt-4 flex -rotate-45 justify-center opacity-75 md:rotate-0">
 								<svg

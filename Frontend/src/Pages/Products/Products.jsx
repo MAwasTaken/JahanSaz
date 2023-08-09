@@ -7,43 +7,59 @@ import { useDispatch, useSelector } from 'react-redux';
 // packages
 
 // redux
-import { getAllProductsFromServer } from '../../Services/Redux/Slices/Products';
+import {
+	getAllProductsFromServer,
+	getFilteredProductsFromServer
+} from '../../Services/Redux/Slices/Products';
 import { getProductsCategoriesFromServer } from '../../Services/Redux/Slices/Categories';
-
-// axios
-import { getAllProducts, getFilteredProducts } from '../../Services/Axios/Requests/Products';
 
 // components
 import Footer from '../../Components/Footer/Footer';
 import Header from '../../Components/Header/Header';
 import DiamondTitle from '../../Components/DiamondTitle/DiamondTitle';
 import Category from '../../Components/Category/Category';
-import ProductBox from '../../Components/ProductBox/ProductBox';
+import PaginateProducts from '../../Components/PaginateProducts/PaginateProducts';
 
 // products
 function Products() {
+	// document title
+	document.title = 'جهان‌ساز | JahanSaz - محصولات';
+
 	// GET all product from state
-	// let products = useSelector((state) => state.products);
-	const [products, setProducts] = useState([]);
+	let products = useSelector((state) => state.products);
 
 	// GET products categories from state
 	const categories = useSelector((state) => state.categories);
 
+	// axios dispatch hook
 	const dispatch = useDispatch();
 
 	// mounting SideEffects
 	useEffect(() => {
+		// scroll to top when mounting
+		window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+
 		// GET products categories when mounting
 		dispatch(getProductsCategoriesFromServer());
 
 		// GET all products when mounting
-		// dispatch(getAllProductsFromServer());
-		getAllProducts().then((res) => setProducts(res.data));
+		dispatch(getAllProductsFromServer());
 	}, []);
 
+	// active filter name
+	const [activeFilter, setActiveFilter] = useState('');
+
 	// change filter when click filter button
-	const changeFilterHandler = (categoryName) =>
-		getFilteredProducts(categoryName).then((res) => setProducts(res.data));
+	const changeFilterHandler = (categoryName) => {
+		// handling active and de active filter
+		if (categoryName === activeFilter) {
+			dispatch(getAllProductsFromServer());
+			setActiveFilter('');
+		} else {
+			dispatch(getFilteredProductsFromServer(categoryName));
+			setActiveFilter(categoryName);
+		}
+	};
 
 	// jsx
 	return (
@@ -60,21 +76,12 @@ function Products() {
 							changeFilterHandler={changeFilterHandler}
 							key={index}
 							categoryName={category}
+							isActive={activeFilter === category}
 						/>
 					))}
 				</div>
-				<main className="mt-5 grid grid-cols-2 md:mt-10 lg:grid-cols-3">
-					{products.map((product, index) => (
-						<ProductBox
-							key={index}
-							productCover={product.images}
-							productTitle={product.productName}
-							productPrice={product.price}
-							productDiscount={product.discount}
-							productSize={product.size}
-							productHref="/"
-						/>
-					))}
+				<main>
+					<PaginateProducts items={products} itemsPerPage={6} />
 				</main>
 			</div>
 			{/* footer */}

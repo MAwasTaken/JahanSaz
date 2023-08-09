@@ -38,7 +38,7 @@ function LastProducts() {
 				titleText="جدیدترین محصولات"
 				haveButton={true}
 				buttonText="همه محصولات"
-				buttonHref="/"
+				buttonHref="/products"
 			/>
 			{/* slider */}
 			<Swiper

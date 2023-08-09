@@ -1,5 +1,5 @@
 // react
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 // styles
@@ -31,6 +31,12 @@ function Login() {
 
 	// is submit btn active
 	const [isDisable, setIsDisable] = useState(false);
+
+	// mounting SideEffects
+	useEffect(() => {
+		// scroll to top when mounting
+		window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+	}, []);
 
 	// jsx
 	return (

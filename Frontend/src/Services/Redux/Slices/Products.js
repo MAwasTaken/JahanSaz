@@ -2,7 +2,12 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 // axios
-import { getAllProducts, getTopSellers, getLastProducts } from '../../Axios/Requests/Products';
+import {
+	getAllProducts,
+	getTopSellers,
+	getLastProducts,
+	getFilteredProducts
+} from '../../Axios/Requests/Products';
 
 // GET all products
 export const getAllProductsFromServer = createAsyncThunk(
@@ -22,23 +27,30 @@ export const getLastProductsFromServer = createAsyncThunk(
 	getLastProducts
 );
 
+export const getFilteredProductsFromServer = createAsyncThunk(
+	'products/getFilteredProductsFromServer',
+	getFilteredProducts
+);
+
 // products slice
 const slice = createSlice({
 	name: 'products',
 	initialState: [],
 	reducers: {},
 	extraReducers: (builder) => {
-		builder.addCase(getAllProductsFromServer.fulfilled, (state, action) => {
-			state.push(...action.payload.data);
-		});
-		builder.addCase(getTopSellersProductsFromServer.fulfilled, (state, action) => {
-			state.push(...action.payload.data);
-		});
-		builder.addCase(getLastProductsFromServer.fulfilled, (state, action) => {
-			state.push(...action.payload.data);
-		});
+		builder.addCase(getAllProductsFromServer.fulfilled, (state, action) => action.payload.data);
+		builder.addCase(
+			getTopSellersProductsFromServer.fulfilled,
+			(state, action) => action.payload.data
+		);
+		builder.addCase(getLastProductsFromServer.fulfilled, (state, action) => action.payload.data);
+		builder.addCase(
+			getFilteredProductsFromServer.fulfilled,
+			(state, action) => action.payload.data
+		);
 	}
 });
 
 // exports
+// export const { filterProducts } = slice.actions;
 export default slice.reducer;
