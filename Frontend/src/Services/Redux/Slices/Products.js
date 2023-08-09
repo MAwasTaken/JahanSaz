@@ -27,6 +27,7 @@ export const getLastProductsFromServer = createAsyncThunk(
 	getLastProducts
 );
 
+// GET filtered products
 export const getFilteredProductsFromServer = createAsyncThunk(
 	'products/getFilteredProductsFromServer',
 	getFilteredProducts
