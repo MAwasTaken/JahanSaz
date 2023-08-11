@@ -18,15 +18,16 @@ const createProductController = async (req, res) => {
 	} catch (err) {
 		// return the err if there is one
 		res.status(500).json(err);
+
+		newProduct.images.forEach((Image) => {
+			fs.unlinkSync(Image);
+		});
 	}
 };
 
 const updateProductController = async (req, res) => {
 	try {
 		const oldProduct = await Product.findById(req.params.id);
-		oldProduct.images.forEach((Image) => {
-			fs.unlinkSync(Image);
-		});
 
 		// find the Product by ID and update it
 		const updatedProduct = await Product.findByIdAndUpdate(
@@ -38,12 +39,21 @@ const updateProductController = async (req, res) => {
 			{ new: true }
 		);
 
+		oldProduct.images.forEach((Image) => {
+			fs.unlinkSync(Image);
+		});
+
 		//set the response
 		res.status(200).json(updatedProduct);
 	} catch (err) {
 		// return the err if there is one
-		console.log(err);
 		res.status(500).json(err);
+
+		req.files
+			.map((element) => element.path)
+			.forEach((Image) => {
+				fs.unlinkSync(Image);
+			});
 	}
 };
 
