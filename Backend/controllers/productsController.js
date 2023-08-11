@@ -83,12 +83,13 @@ const getAllProductcontroller = async (req, res) => {
 	const qNew = req.query.new;
 	const qSearch = req.query.search;
 	const qBestSeller = req.query.bestseller;
-	const qPage = req.query.page - 1;
+	const qPage = req.query.page;
 	const qCategory = req.query.category;
 
 	try {
 		//Define the response objects
 		let products;
+		let pages;
 
 		// if there is "new" query
 		if (qNew) {
@@ -101,7 +102,16 @@ const getAllProductcontroller = async (req, res) => {
 				categories: {
 					$in: [qCategory.trim()]
 				}
+			})
+				.skip(qPage * 9)
+				.limit(9);
+
+			const countProductsCategory = await Product.countDocuments({
+				categories: {
+					$in: [qCategory.trim()]
+				}
 			});
+			pages = Math.ceil(countProductsCategory / 9);
 		} // if there is "Search" query
 		else if (qSearch) {
 			// search in Products and return the resualt
@@ -116,15 +126,18 @@ const getAllProductcontroller = async (req, res) => {
 		else if (qPage) {
 			// return the page of Products
 			products = await Product.find()
-				.skip(qPage * 9)
+				.skip((qPage - 1) * 9)
 				.limit(9);
+
+			const countProducts = await Product.countDocuments();
+			pages = Math.ceil(countProducts / 9);
 		} else {
 			//return All Products
 			products = await Product.find();
 		}
 
 		// set the response
-		res.status(200).json(products);
+		res.status(200).json({ products, pages });
 	} catch (err) {
 		res.status(500).json(err);
 		console.log(err);
